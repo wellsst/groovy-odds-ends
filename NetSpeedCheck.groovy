@@ -97,31 +97,6 @@ public class SocketClientHandler implements Runnable {
             receiveData()
 
             sendData("Bye...")
-            /*Date now = new Date()
-            int lengthToSend = runOpts.dataBlockSize
-            int nrSends = runOpts.numberOfTimesToSend
-            String sendMe = ""
-
-            for (int i = 0; i < nrSends; i++) {
-
-                UUID uuid = UUID.randomUUID()
-                while (sendMe.length() < lengthToSend) {
-                    sendMe += uuid.toString()
-                }
-
-                def duration = GroovyUtils.withTiming {->
-                    sendData(sendMe)
-                }
-                totalAmountSent += lengthToSend
-                totalTimeTaken += duration
-
-                TimeDuration timeDuration = TimeCategory.minus(new Date(now.time + duration), now)
-                println " Sent ${GroovyUtils.humanReadableByteCount(sendMe.length(), false)} in ${timeDuration} secs, send ${i+1}/${nrSends}"
-            }
-
-            println "Totals:: "
-            TimeDuration timeDuration = TimeCategory.minus(new Date(now.time + totalTimeTaken), now)
-            println " Sent ${GroovyUtils.humanReadableByteCount(totalAmountSent, false)} in ${timeDuration} secs"*/
         } catch (IOException e) {
             e.printStackTrace()
         } catch (InterruptedException e) {
