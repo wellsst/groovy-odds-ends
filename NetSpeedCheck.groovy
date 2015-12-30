@@ -104,26 +104,7 @@ public class SocketClientHandler implements Runnable {
         }
     }
 
-    /* private void readResponse() throws IOException, InterruptedException {
-         String userInput
-         BufferedReader stdIn = new BufferedReader(new InputStreamReader(client.getInputStream()))
-         while ((userInput = stdIn.readLine()) != null) {
-             if (userInput.equals("TIME?")) {
-                 println("REQUEST TO SEND TIME RECEIVED. SENDING CURRENT TIME")
-
-                 break
-             }
-             println(userInput)
-         }
-     }*/
-
     private void receiveData() throws IOException, InterruptedException {
-        /* BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()))
-
-         String userInput
-         while ((userInput = reader.readLine()) != null) {
-             println(userInput)
-         }*/
         String responseLine
         BufferedReader stdIn = new BufferedReader(new InputStreamReader(client.getInputStream()))
 
@@ -202,14 +183,11 @@ public class SocketClient {
             UUID uuid = UUID.randomUUID()
 
             sendMe = generator((('A'..'Z') + ('0'..'9')).join(), sizePerSend)
-            /*while (sendMe.length() < lengthToSend) {
-                sendMe += uuid.toString()
-            }*/
+
             int maxNrReports = 10
             int reportingFreq = Math.max (((lengthToSend / sizePerSend) * (1/maxNrReports) as int), Math.min((lengthToSend / sizePerSend) as int, maxNrReports))
             int nrSends = 0
 
-            //println "lengthToSend: ${lengthToSend}, sizePerSend: ${sizePerSend} = ${(lengthToSend / sizePerSend)} reporting freq: ${reportingFreq}"
             def duration = GroovyUtils.withTiming {->
                 while (totalSent < lengthToSend) {
                     transmit(sendMe)
