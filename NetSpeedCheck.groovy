@@ -1,5 +1,11 @@
 #!/usr/bin/env groovy
 
+/** 
+  A simple client or server script that will report on the network speed between the 2 nodes.  
+  Really the results are only indicative and should be taken as a rough guess as there are other factors at play between the clients and server but 
+  the aim is to give that rough guide and also serves as an examples in Groovy of client/server, simple Threading, gathering command line args and other Groovy'isms
+*/
+
 import groovy.time.TimeCategory
 import groovy.time.TimeDuration
 import util.*
