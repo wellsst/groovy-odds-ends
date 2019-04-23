@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<pidx:Invoice xmlns:pidx="http://www.api.org/pidXML/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  pidx:transactionPurposeIndicator="Original" pidx:version="1.0">
+	<pidx:InvoiceProperties>
+		<pidx:InvoiceNumber>96129475</pidx:InvoiceNumber>
+		<pidx:InvoiceDate>2009-04-02</pidx:InvoiceDate>
+		<pidx:PartnerInformation partnerRoleIndicator="BillTo">
+			<pidx:PartnerIdentifier partnerIdentifierIndicator="DUNSNumber">754126316</pidx:PartnerIdentifier>
+			<pidx:PartnerIdentifier partnerIdentifierIndicator="AssignedBySeller">343644</pidx:PartnerIdentifier>
+			<pidx:PartnerName>BHP BILLITON PETROLEUM EBIZ</pidx:PartnerName>
+			<pidx:AddressInformation>
+				<pidx:StreetName>DO NOT MAIL - 1360 POST OAK BLVD</pidx:StreetName>
+				<pidx:AddressLine>BHP BILLITON PETROLEUM EBIZ</pidx:AddressLine>
+				<pidx:AddressLine>4TH FLOOR</pidx:AddressLine>
+				<pidx:CityName>HOUSTON</pidx:CityName>
+				<pidx:StateProvince>TX</pidx:StateProvince>
+				<pidx:PostalCode>770563020</pidx:PostalCode>
+				<pidx:PostalCountry>
+					<pidx:CountryCode>US</pidx:CountryCode>
+				</pidx:PostalCountry>
+				<pidx:CountyName>TX</pidx:CountyName>
+			</pidx:AddressInformation>
+		</pidx:PartnerInformation>
+		<pidx:PartnerInformation partnerRoleIndicator="RemitTo">
+			<pidx:PartnerIdentifier partnerIdentifierIndicator="DUNSNumber">065485625</pidx:PartnerIdentifier>
+			<pidx:PartnerName>Halliburton Energy Services, Inc.</pidx:PartnerName>
+			<pidx:AddressInformation>
+				<pidx:AddressLine>Remit To:  P.O. Box 203143</pidx:AddressLine>
+				<pidx:CityName>Houston</pidx:CityName>
+				<pidx:StateProvince>TX</pidx:StateProvince>
+				<pidx:PostalCode>77216-3143</pidx:PostalCode>
+				<pidx:CountyName>TX</pidx:CountyName>
+			</pidx:AddressInformation>
+			<pidx:ContactInformation contactInformationIndicator="EnteredBy">
+				<pidx:EmailAddress>343644_264@halliburton.com</pidx:EmailAddress>
+			</pidx:ContactInformation>
+		</pidx:PartnerInformation>
+		<pidx:PartnerInformation partnerRoleIndicator="Seller">
+			<pidx:PartnerIdentifier partnerIdentifierIndicator="DUNSNumber">065485625</pidx:PartnerIdentifier>
+			<pidx:PartnerName>Halliburton Energy Services, Inc.</pidx:PartnerName>
+			<pidx:AddressInformation>
+				<pidx:AddressLine>4607 HWY 90 EAST - BROUSSARD</pidx:AddressLine>
+				<pidx:CityName>BROUSSARD</pidx:CityName>
+				<pidx:StateProvince>LA</pidx:StateProvince>
+				<pidx:PostalCode>70518</pidx:PostalCode>
+				<pidx:PostalCountry>
+					<pidx:CountryCode>US</pidx:CountryCode>
+				</pidx:PostalCountry>
+				<pidx:CountyName>LA</pidx:CountyName>
+			</pidx:AddressInformation>
+			<pidx:ContactInformation contactInformationIndicator="Other">
+				<pidx:Telephone telephoneIndicator="Voice">
+					<pidx:PhoneNumber>(800) 444-7830</pidx:PhoneNumber>
+				</pidx:Telephone>
+				<pidx:Telephone telephoneIndicator="Fax">
+					<pidx:PhoneNumber>(337) 572-4725</pidx:PhoneNumber>
+				</pidx:Telephone>
+				<pidx:EmailAddress>343644_264@halliburton.com</pidx:EmailAddress>
+			</pidx:ContactInformation>
+		</pidx:PartnerInformation>
+		<pidx:PartnerInformation partnerRoleIndicator="ShipToParty">
+			<pidx:PartnerIdentifier partnerIdentifierIndicator="DUNSNumber">754126316</pidx:PartnerIdentifier>
+			<pidx:PartnerIdentifier partnerIdentifierIndicator="AssignedBySeller">2716889</pidx:PartnerIdentifier>
+			<pidx:PartnerName>BHP G20084 7 SC102 ST1BP1,GC653</pidx:PartnerName>
+			<pidx:AddressInformation>
+				<pidx:StreetName>SHENZI GREEN CANYON 653</pidx:StreetName>
+				<pidx:AddressLine>G20084 7 SC102 ST1BP1</pidx:AddressLine>
+				<pidx:AddressLine>GC653</pidx:AddressLine>
+				<pidx:AddressLine>BHP</pidx:AddressLine>
+				<pidx:CityName>GOLDEN MEADOW</pidx:CityName>
+				<pidx:StateProvince>LA</pidx:StateProvince>
+				<pidx:PostalCode>70357</pidx:PostalCode>
+				<pidx:PostalCountry>
+					<pidx:CountryCode>US</pidx:CountryCode>
+				</pidx:PostalCountry>
+				<pidx:CountyName>LA</pidx:CountyName>
+			</pidx:AddressInformation>
+		</pidx:PartnerInformation>
+		<pidx:PartnerInformation partnerRoleIndicator="SoldTo">
+			<pidx:PartnerIdentifier partnerIdentifierIndicator="DUNSNumber">754126316</pidx:PartnerIdentifier>
+			<pidx:PartnerIdentifier partnerIdentifierIndicator="AssignedBySeller">343644</pidx:PartnerIdentifier>
+			<pidx:PartnerName>BHP BILLITON PETROLEUM EBIZ</pidx:PartnerName>
+			<pidx:AddressInformation>
+				<pidx:AddressLine>DO NOT MAIL - 1360 POST OAK BLVD</pidx:AddressLine>
+				<pidx:CityName>HOUSTON</pidx:CityName>
+				<pidx:StateProvince>TX</pidx:StateProvince>
+				<pidx:PostalCode>770563020</pidx:PostalCode>
+				<pidx:PostalCountry>
+					<pidx:CountryCode>US</pidx:CountryCode>
+				</pidx:PostalCountry>
+			</pidx:AddressInformation>
+		</pidx:PartnerInformation>
+		<pidx:InvoiceTypeCode>ProductOrService</pidx:InvoiceTypeCode>
+		<pidx:PurchaseOrderInformation>
+			<pidx:PurchaseOrderNumber>3300050217</pidx:PurchaseOrderNumber>
+			<pidx:PurchaseOrderIssuedDate>2008-01-11</pidx:PurchaseOrderIssuedDate>
+			<pidx:SalesOrderNumber>6599254</pidx:SalesOrderNumber>
+		</pidx:PurchaseOrderInformation>
+		<pidx:FieldTicketInformation>
+			<pidx:FieldTicketNumber>6599254</pidx:FieldTicketNumber>
+		</pidx:FieldTicketInformation>
+		<pidx:PrimaryCurrency>
+			<pidx:CurrencyCode>USD</pidx:CurrencyCode>
+		</pidx:PrimaryCurrency>
+		<pidx:LanguageCode>EN</pidx:LanguageCode>
+		<pidx:JobLocationInformation>
+			<pidx:JobLocationClassCode>FederalWaters</pidx:JobLocationClassCode>
+			<pidx:JobLocationDescription>Broussard, LA</pidx:JobLocationDescription>
+			<pidx:WellInformation>
+				<pidx:WellIdentifier>GC653</pidx:WellIdentifier>
+			</pidx:WellInformation>
+		</pidx:JobLocationInformation>
+		<pidx:ServiceDateTime dateTypeIndicator="ServicePeriodStart">2009-04-01T00:00:00.00Z</pidx:ServiceDateTime>
+		<pidx:ServiceDateTime dateTypeIndicator="ServicePeriodEnd">2009-04-02T00:00:00.00Z</pidx:ServiceDateTime>
+		<pidx:ServiceDateTime dateTypeIndicator="InvoiceDueDate">2009-05-02T00:00:00.00Z</pidx:ServiceDateTime>
+		<pidx:CountryOfFinalDestination>
+			<pidx:CountryCode>US</pidx:CountryCode>
+		</pidx:CountryOfFinalDestination>
+		<pidx:PaymentTerms>
+			<pidx:PaymentTermsOfSale>Net 30 days from Invoice date</pidx:PaymentTermsOfSale>
+			<pidx:PaymentTermsBasisDateCode>DeliveryDate</pidx:PaymentTermsBasisDateCode>
+			<pidx:PaymentTermsBasisDate>2009-05-02</pidx:PaymentTermsBasisDate>
+			<pidx:TermsNetDays>30</pidx:TermsNetDays>
+		</pidx:PaymentTerms>
+		<pidx:ReferenceInformation referenceInformationIndicator="Other">
+			<pidx:ReferenceNumber>TRADINGPARTNER=QDRM</pidx:ReferenceNumber>
+		</pidx:ReferenceInformation>
+		<pidx:ReferenceInformation referenceInformationIndicator="Other">
+			<pidx:ReferenceNumber>WAITNOTIFICATIONRECORDID=2242</pidx:ReferenceNumber>
+		</pidx:ReferenceInformation>
+		<pidx:ReferenceInformation referenceInformationIndicator="ContractNumber">
+			<pidx:ReferenceNumber>N/A</pidx:ReferenceNumber>
+		</pidx:ReferenceInformation>
+		<pidx:ReferenceInformation referenceInformationIndicator="JobNumber">
+			<pidx:ReferenceNumber>6599254</pidx:ReferenceNumber>
+		</pidx:ReferenceInformation>
+		<pidx:ReferenceInformation referenceInformationIndicator="QuoteNumber">
+			<pidx:ReferenceNumber>6412655</pidx:ReferenceNumber>
+		</pidx:ReferenceInformation>
+		<pidx:ReferenceInformation referenceInformationIndicator="DeliveryTicketNumber">
+			<pidx:ReferenceNumber>805077300</pidx:ReferenceNumber>
+		</pidx:ReferenceInformation>
+		<pidx:Attachment>
+			<pidx:AttachmentPurposeCode>Other</pidx:AttachmentPurposeCode>
+			<pidx:FileName>FT96129475_1_091105152232.PDF</pidx:FileName>
+			<pidx:AttachmentDescription>Field Ticket</pidx:AttachmentDescription>
+			<pidx:AttachmentLocation>https://www.myhalliburton.com/portal/server.pt?space=CommunityPage&amp;cached=true&amp;parentname=CommunityPage&amp;parentid=1&amp;control=SetCommunity&amp;PageID=0&amp;CommunityID=597&amp;JobNumber=6599254</pidx:AttachmentLocation>
+		</pidx:Attachment>
+	</pidx:InvoiceProperties>
+	<pidx:InvoiceDetails>
+		<pidx:InvoiceLineItem>
+			<pidx:LineItemNumber>1</pidx:LineItemNumber>
+			<pidx:InvoiceQuantity>
+				<pidx:Quantity>1</pidx:Quantity>
+				<pidx:UnitOfMeasureCode>EA</pidx:UnitOfMeasureCode>
+			</pidx:InvoiceQuantity>
+			<pidx:LineItemInformation>
+				<pidx:LineItemIdentifier identifierIndicator="AssignedBySeller">315209</pidx:LineItemIdentifier>
+				<pidx:LineItemName>SDL SERVICES -FINAL DELVERABLES- ST00BP0</pidx:LineItemName>
+				<pidx:LineItemDescription>315209 - SDL SERVICES -FINAL DELVERABLES- ST00BP0</pidx:LineItemDescription>
+			</pidx:LineItemInformation>
+			<pidx:CommodityCode agencyIndicator="UNSPSC">71112200</pidx:CommodityCode>
+			<pidx:CommodityCode agencyIndicator="Halliburton">1210158JZ12</pidx:CommodityCode>
+			<pidx:Pricing>
+				<pidx:UnitPrice>
+					<pidx:MonetaryAmount>0</pidx:MonetaryAmount>
+					<pidx:UnitOfMeasureCode>EA</pidx:UnitOfMeasureCode>
+					<pidx:CurrencyCode>USD</pidx:CurrencyCode>
+				</pidx:UnitPrice>
+			</pidx:Pricing>
+			<pidx:LineItemTotal>
+				<pidx:MonetaryAmount>0</pidx:MonetaryAmount>
+			</pidx:LineItemTotal>
+		</pidx:InvoiceLineItem>
+		<pidx:InvoiceLineItem>
+			<pidx:LineItemNumber>2</pidx:LineItemNumber>
+			<pidx:InvoiceQuantity>
+				<pidx:Quantity>7</pidx:Quantity>
+				<pidx:UnitOfMeasureCode>EA</pidx:UnitOfMeasureCode>
+			</pidx:InvoiceQuantity>
+			<pidx:LineItemInformation>
+				<pidx:LineItemIdentifier identifierIndicator="AssignedBySeller">309593</pidx:LineItemIdentifier>
+				<pidx:LineItemName>ADDITIONAL SET OF FINAL WELL LOG DELIVER</pidx:LineItemName>
+				<pidx:LineItemDescription>309593 - ADDITIONAL SET OF FINAL WELL LOG DELIVER - 03/03/2009 - 03/03/2009</pidx:LineItemDescription>
+			</pidx:LineItemInformation>
+			<pidx:CommodityCode agencyIndicator="UNSPSC">71112103</pidx:CommodityCode>
+			<pidx:CommodityCode agencyIndicator="Halliburton">1210158JZ12</pidx:CommodityCode>
+			<pidx:Pricing>
+				<pidx:UnitPrice>
+					<pidx:MonetaryAmount>1000</pidx:MonetaryAmount>
+					<pidx:UnitOfMeasureCode>EA</pidx:UnitOfMeasureCode>
+					<pidx:CurrencyCode>USD</pidx:CurrencyCode>
+				</pidx:UnitPrice>
+			</pidx:Pricing>
+			<pidx:LineItemTotal>
+				<pidx:MonetaryAmount>7000</pidx:MonetaryAmount>
+			</pidx:LineItemTotal>
+			<pidx:Comment>03/03/2009 - 03/03/2009 </pidx:Comment>
+		</pidx:InvoiceLineItem>
+	</pidx:InvoiceDetails>
+	<pidx:InvoiceSummary>
+		<pidx:TotalLineItems>2</pidx:TotalLineItems>
+		<pidx:InvoiceTotal>
+			<pidx:MonetaryAmount>7000</pidx:MonetaryAmount>
+			<pidx:CurrencyCode>USD</pidx:CurrencyCode>
+		</pidx:InvoiceTotal>
+	</pidx:InvoiceSummary>
+</pidx:Invoice>
