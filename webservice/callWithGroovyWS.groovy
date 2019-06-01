@@ -1,8 +1,6 @@
 
 @Grab(group='org.codehaus.groovy.modules', module='groovyws', version='0.5.2')
 
-package webservice
-
 import groovyx.net.ws.WSClient
 println "1"
 proxy = new WSClient("http://www.w3schools.com/webservices/tempconvert.asmx?WSDL", this.class.classLoader)
