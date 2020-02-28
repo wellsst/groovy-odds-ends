@@ -27,7 +27,7 @@ while ((zipEntry = zis.getNextEntry()) != null) {
     String fileEntryName = zipEntry.name
     if (fileEntryName.endsWith("flow.xml")) {
         // Get the zip entries to check for being locked
-        //println fileEntryName // todo convert to proper service name
+        //println fileEntryName
 
         println zipFileNameToServiceName(fileEntryName)
     } else if (fileEntryName.endsWith("manifest.v3")) {
