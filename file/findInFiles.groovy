@@ -7,12 +7,13 @@ import util.GroovyUtils
 
 import static groovy.io.FileType.*
 
-String startFrom = "D:\\1dev"
-String searchFor = "WICS"
+String startFrom = "D:\\1dev\\Apps"
+String searchFor = "setConfirmationCode"
+boolean searchWordBoundaries = false // true uses regex and will be slower
 
 String oracleFileTypes = "pkb|pks|dat|vw|sql|trg|prc|ind|fmb"
 String srcFiles = "java|groovy|rb|factories|py|js"
-String webFiles = "rb|json|js|ts|css|html|jsp|less|css|scss|tag|tld|rdf"
+String webFiles = "rb|json|js|ts|ts|css|html|jsp|less|css|scss|tag|tld|rdf"
 String txtFiles = "xml|json|txt|properties|md|yml|config"
 String otherFiles = "rjl|jrxml"
 String allFiles = ".*"
@@ -26,9 +27,10 @@ String dotFiles = /\..*/
 String excludeFileTypes = binFiles + "|" + officeFiles + "|" + ignoreFiles + "|" + mediaFiles + "|" + dotFiles
 
 String includeFileTypes = srcFiles + "|" + webFiles
-includeFileTypes = allFiles
-includeFileTypes = srcFiles  + "|" + webFiles + "|" + txtFiles
-includeFileTypes = txtFiles  + "|" + officeFiles
+//includeFileTypes = allFiles
+//includeFileTypes = srcFiles  + "|" + webFiles + "|" + txtFiles
+// includeFileTypes = txtFiles  + "|" + officeFiles
+includeFileTypes = srcFiles
 
 long maxFileSize = 1024 * 1024 * 2
 println "Max file size to search on: ${GroovyUtils.humanReadableByteCount(maxFileSize)}"
@@ -37,6 +39,7 @@ long maxFileSizeProcessed = 0
 long filesSearched = 0
 long kbSearched = 0
 int matches = 0
+long linesSearched = 0
 Map extensionsFound = [:]
 
 Date now = new Date()
@@ -47,7 +50,7 @@ def duration = GroovyUtils.withTiming { ->
             excludeNameFilter: ~/(?i).*\.(${excludeFileTypes})/,
             type: FILES,
             maxDepth: -1,
-            preDir: { if (['.svn', 'Maven']*.matches(it.name).contains(true)) return FileVisitResult.SKIP_SUBTREE },) { file ->
+            preDir: { if (['.svn', 'Maven', 'target']*.matches(it.name).contains(true)) return FileVisitResult.SKIP_SUBTREE },) { file ->
 
         if (file.size() <= maxFileSize) {
 
@@ -67,8 +70,10 @@ def duration = GroovyUtils.withTiming { ->
             String linesFound = ""
 
             contents.eachWithIndex { line, lineIndex ->
-                // if (line.toLowerCase().contains(searchFor.toLowerCase())) {
-                if (line ==~ /(?i).*\b${searchFor}\b.*/) {
+                linesSearched++
+
+                def searchCondition = searchWordBoundaries ? line ==~ /(?i).*\b${searchFor}\b.*/ : line.toLowerCase().contains(searchFor.toLowerCase())
+                if (searchCondition) {
                     found = true
                     matches++
                     if (lineIndex > 0) linesFound += "${lineIndex - 1}:  ${contents[lineIndex - 1]}\n"
@@ -83,14 +88,15 @@ def duration = GroovyUtils.withTiming { ->
                 println "   -- files searched: ${filesSearched} : ${GroovyUtils.humanReadableByteCount(kbSearched)} "
                 println()
             } else if (filesSearched % 1000 == 0) {
-                println "   -- files searched: ${filesSearched} : ${GroovyUtils.humanReadableByteCount(kbSearched)}"
+                TimeDuration timeDuration = TimeCategory.minus(new Date(), new Date(now.time))
+                println "   -- files searched: ${filesSearched} : ${GroovyUtils.humanReadableByteCount(kbSearched)} in ${timeDuration} secs, linesSearched: ${linesSearched} "
             }
         }
     }
 }
 
 TimeDuration timeDuration = TimeCategory.minus(new Date(now.time + duration), now)
-println "   -- Total files searched: ${filesSearched} : ${GroovyUtils.humanReadableByteCount(kbSearched)} , '${searchFor}' matched ${matches} times in ${timeDuration} secs"
+println "   -- Total files searched: ${filesSearched} : ${GroovyUtils.humanReadableByteCount(kbSearched)} , '${searchFor}' matched ${matches} times in ${timeDuration} secs, linesSearched: ${linesSearched} "
 String extText = ""
 extensionsFound = extensionsFound.sort { -it.value }
 extensionsFound.each { k, v ->
