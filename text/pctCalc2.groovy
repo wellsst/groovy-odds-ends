@@ -1,10 +1,12 @@
 package text
 
+import com.mitchellbosecke.pebble.PebbleEngine
+import com.mitchellbosecke.pebble.template.PebbleTemplate
 import groovy.json.JsonSlurper
-import org.codehaus.groovy.ast.tools.BeanUtils
-import org.codehaus.groovy.runtime.InvokerHelper
-
+import groovy.time.TimeCategory
 import java.text.DecimalFormat
+
+/// @Grab(group='io.pebbletemplates', module='pebble', version='3.1.2')
 
 String localFileName = "LocalDXYArea.json"
 
@@ -12,9 +14,15 @@ File local = new File(localFileName)
 
 String statsText
 // if file is old
-if (local.exists() && new Date(local.lastModified()) > new Date()-1) {
+boolean isLocalOld = false
+use(TimeCategory) {
+    isLocalOld = new Date(local.lastModified()) > new Date() - 1.hour //seems ot update every hour'ish
+}
+if (local.exists() && isLocalOld) {
+    println "Using local file for data ..."
     statsText = local.text
 } else {
+    println "Grabbing updated data from git ..."
     statsText = new URL("https://raw.githubusercontent.com/BlankerL/DXY-COVID-19-Data/master/json/DXYArea.json").text
     local.write(statsText)
 }
@@ -31,12 +39,27 @@ rawStats.results.each { city ->
     }
 }
 
+new File("stats.html").write(contentFromTemplate(stats))
+
 stats.sort().each { stat ->
     println stat
 }
 
+String contentFromTemplate(List<StatHolder> stats) {
+    PebbleEngine engine = new PebbleEngine.Builder().build();
+    PebbleTemplate compiledTemplate = engine.getTemplate("pctCalc2_tmpl.html");
+
+    Map<String, Object> context = new HashMap<>();
+    context.put("stats", stats);
+
+    Writer writer = new StringWriter();
+    compiledTemplate.evaluate(writer, context);
+
+    writer.toString()
+}
+
 trait IgnoreUnknownProperties {
-    def propertyMissing(String name, value){
+    def propertyMissing(String name, value) {
         // do nothing
     }
 }
@@ -45,6 +68,7 @@ class JSONStatHolder implements IgnoreUnknownProperties, Comparable {
     DecimalFormat df = new DecimalFormat("0.00%")
     String countryEnglishName
     String provinceEnglishName
+    String continentEnglishName
 
     Integer currentConfirmedCount
     Integer confirmedCount
@@ -62,7 +86,7 @@ class JSONStatHolder implements IgnoreUnknownProperties, Comparable {
 
     @Override
     public String toString() {
-        return "${countryEnglishName} - ${provinceEnglishName}: \t\t\t ${deadCount} / ${confirmedCount} (current ${currentConfirmedCount})= \t ${getPct()}, suspect: ${suspectedCount}, cured: ${curedCount}"
+        return "${countryEnglishName} - ${provinceEnglishName} (${continentEnglishName}): \t\t\t\t\t ${deadCount} / ${confirmedCount} (current ${currentConfirmedCount})= \t\t ${getPct()}, suspect: ${suspectedCount}, cured: ${curedCount}"
     }
 
     @Override

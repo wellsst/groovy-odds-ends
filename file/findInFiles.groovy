@@ -9,8 +9,8 @@ import java.text.DecimalFormat
 
 import static groovy.io.FileType.*
 
-String startFrom = "D:\\1dev\\"
-String searchFor = "UPDATE SY_COMMUNICATION"
+String startFrom = "D:\\"
+String searchFor = "https://nexusdev.wcq.services/nexusdev/repository"
 boolean searchWordBoundaries = false // true uses regex and will be slower
 int reportEveryXLines = 5000
 
@@ -32,9 +32,11 @@ String excludeFileTypes = binFiles + "|" + officeFiles + "|" + ignoreFiles + "|"
 String includeFileTypes = srcFiles + "|" + webFiles
 //includeFileTypes = srcFiles  + "|" + webFiles + "|" + txtFiles
 // includeFileTypes = txtFiles  + "|" + officeFiles
-includeFileTypes = oracleFileTypes
-includeFileTypes = srcFiles
-// includeFileTypes = allFiles
+//includeFileTypes = oracleFileTypes
+includeFileTypes = txtFiles
+includeFileTypes = allFiles
+
+includeFileTypes = "xml"
 
 long maxFileSize = 1024 * 1024 * 2
 println "Max file size to search on: ${GroovyUtils.humanReadableByteCount(maxFileSize)}"
@@ -91,18 +93,18 @@ def duration = GroovyUtils.withTiming { ->
                 TimeDuration timeDuration = TimeCategory.minus(new Date(), new Date(now.time))
                 println file
                 println linesFound
-                println "   -- files searched: ${filesSearched} : ${GroovyUtils.humanReadableByteCount(kbSearched)} in ${timeDuration} secs, linesSearched: ${df.format(linesSearched)} "
+                println "   -- files searched: ${filesSearched} : ${GroovyUtils.humanReadableByteCount(kbSearched)} in ${timeDuration}, linesSearched: ${df.format(linesSearched)} "
                 println()
             } else if (filesSearched % reportEveryXLines == 0) {
                 TimeDuration timeDuration = TimeCategory.minus(new Date(), new Date(now.time))
-                println "   -- files searched: ${filesSearched} : ${GroovyUtils.humanReadableByteCount(kbSearched)} in ${timeDuration} secs, linesSearched: ${df.format(linesSearched)} "
+                println "   -- files searched: ${filesSearched} : ${GroovyUtils.humanReadableByteCount(kbSearched)} in ${timeDuration}, linesSearched: ${df.format(linesSearched)} "
             }
         }
     }
 }
 
 TimeDuration timeDuration = TimeCategory.minus(new Date(now.time + duration), now)
-println "   -- Total files searched: ${filesSearched} : ${GroovyUtils.humanReadableByteCount(kbSearched)} , '${searchFor}' matched ${matches} times in ${timeDuration} secs, linesSearched: ${df.format(linesSearched)} "
+println "   -- Total files searched: ${filesSearched} : ${GroovyUtils.humanReadableByteCount(kbSearched)} , '${searchFor}' matched ${matches} times in ${timeDuration}, linesSearched: ${df.format(linesSearched)} "
 String extText = ""
 extensionsFound = extensionsFound.sort { -it.value }
 extensionsFound.each { k, v ->

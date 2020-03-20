@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="https://datatables.net/release-datatables/extensions/ColVis/css/dataTables.colVis.css"> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="style.css">-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <!-- <script src="https://datatables.net/release-datatables/extensions/ColVis/js/dataTables.colVis.js"></script> -->
+
+    <!--    <script src="https://cdn.datatables.net/buttons/1.2.1/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.colVis.min.js"></script>-->
+
+    <!--<script src="script.js"></script>-->
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                responsive: true,
+                "order": [[ 6, "desc" ]],
+                "lengthMenu": [[50, 100, -1], [50, 100, "All"]]
+            } );
+        } );
+        // grouping https://datatables.net/examples/advanced_init/row_grouping.html
+    </script>
+</head>
+
+<body>
+<table id="example" class="display compact table table-bordered" cellspacing="0">
+    <thead>
+    <tr>
+        <th>Continent</th>
+        <th>Country</th>
+        <th>Location</th>
+        <th>Dead</th>
+        <th>Confirmed</th>
+        <th>Current</th>
+        <th>Rate</th>
+        <th>Suspect</th>
+        <th>Cured</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for stat in stats %}
+    <tr>
+        <td>{{stat.continentEnglishName}}</td>
+        <td>{{stat.countryEnglishName}}</td>
+        <td>{{stat.provinceEnglishName}}</td>
+        <td>{{stat.deadCount}}</td>
+        <td>{{stat.confirmedCount}}</td>
+        <td>{{stat.currentConfirmedCount}}</td>
+        <td>{{stat.getPct()}}</td>
+        <td>{{stat.suspectedCount}}</td>
+        <td>{{stat.curedCount}}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+</body>
+
+</html>
