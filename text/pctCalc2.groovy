@@ -39,7 +39,7 @@ rawStats.results.each { city ->
     }
 }
 
-new File("stats.html").write(contentFromTemplate(stats))
+new File("covd_stats_${new Date().format("dd-MM-yy")}.html").write(contentFromTemplate(stats))
 
 stats.sort().each { stat ->
     println stat
