@@ -19,7 +19,7 @@ class DuplicateFileUtils {
     static HashMap<String, List<String>> findDuplicates(String startFrom, boolean useChecksum = false, minSizeKB = 0, maxSizeKB = Long.MAX_VALUE, String filenameContains = "") {
 
         HashMap<String, List<String>> files = new HashMap<>()
-
+        HashSet<String> foldersWithDups = new HashSet<>()
         File startFolder = new File(startFrom)
         if (startFolder.exists()) {
             startFolder.eachFileRecurse { f ->
@@ -32,6 +32,8 @@ class DuplicateFileUtils {
                     }
                     fileList.add(f.absolutePath)
                     files.put(fileNameKey, fileList)
+
+                    foldersWithDups.add(f.parentFile.absolutePath)
                 }
             }
             Long totalSave = 0
@@ -49,6 +51,9 @@ class DuplicateFileUtils {
                 }
             }
             println " Total save: ${GroovyUtils.humanReadableByteCount(totalSave)}"
+            foldersWithDups.sort().each {
+                println it
+            }
             return files
         } else {
             throw new Exception("Folder: ${startFrom} does not exist")
@@ -70,6 +75,22 @@ class DuplicateFileUtils {
                     }
                 } else {
                     println "File retained: ${listItem}"
+                }
+            }
+        }
+    }
+
+    // todo: Finish this
+    static def archiveDuplicates(HashMap<String, List<String>> files) {
+        String archiveFilename = "duplicates_${new Date()}.zip"
+        files.each { key, fileList ->
+            fileList = fileList.sort { it.size() }
+            fileList.eachWithIndex { listItem, index ->
+                if (index > 0) {
+                    println "Archiving ${listItem}"
+
+                } else {
+                    println "File retained from archive: ${listItem}"
                 }
             }
         }

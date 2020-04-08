@@ -1,5 +1,13 @@
 package numbers
 
+/*
+Snakebites are a type of exercise reps first taken from the idea of Australian Commandos/paras
+
+Traditionally (I think) its 20 reps where you start with 1 pushup and 19 pullups, then 2/18, 3/17 etc
+
+This calcs the total reps
+ */
+
 (6..30).each { nrTimes ->
     int i = 0
     nrTimes.times {
