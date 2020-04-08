@@ -1,8 +1,8 @@
 package text
 
-int nrOperators = 2
-int nrSums = 50
-int maxTerm = 50
+int nrOperators = 1
+int nrSums = 20
+int maxTerm = 100
 
 for (int i = 0; i < nrSums; i++) {
     Random rand = new Random()
