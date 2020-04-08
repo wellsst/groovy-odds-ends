@@ -3,7 +3,8 @@ package text
 
 import org.apache.commons.lang.WordUtils
 
-def cli = new CliBuilder(usage:'DicewarePhraseGen')
+def cli = new CliBuilder(usage:'DicewarePhraseGen -p 5 -w 3, where p = number of phrases and w = nr words')
+
 
 //cli.logfile(args:1, argName:'file', 'use given file for log')
 cli.p(args: 1, 'nr of phrases')

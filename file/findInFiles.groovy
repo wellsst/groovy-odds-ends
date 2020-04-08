@@ -9,8 +9,8 @@ import java.text.DecimalFormat
 
 import static groovy.io.FileType.*
 
-String startFrom = "D:\\"
-String searchFor = "https://nexusdev.wcq.services/nexusdev/repository"
+String startFrom = "D:\\1dev\\Apps\\CPIS\\patch_scripts"
+String searchFor = "51303"
 boolean searchWordBoundaries = false // true uses regex and will be slower
 int reportEveryXLines = 5000
 
@@ -36,7 +36,7 @@ String includeFileTypes = srcFiles + "|" + webFiles
 includeFileTypes = txtFiles
 includeFileTypes = allFiles
 
-includeFileTypes = "xml"
+//includeFileTypes = "xml"
 
 long maxFileSize = 1024 * 1024 * 2
 println "Max file size to search on: ${GroovyUtils.humanReadableByteCount(maxFileSize)}"
